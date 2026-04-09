@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.class
+target/
+*.jar
+*.log
+.DS_Store
+Thumbs.db

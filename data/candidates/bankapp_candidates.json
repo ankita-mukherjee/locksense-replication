@@ -1,0 +1,26 @@
+[
+  {
+    "file_path": "BankApp/src/main/java/com/bankapp/BankAccount.java",
+    "start_line": 21,
+    "end_line": 31,
+    "lock_object": "globalLock",
+    "smell_type": "unified_locking",
+    "severity_score": 0.69,
+    "method": "deposit",
+    "class": "BankAccount",
+    "features": {
+      "method_count": 3,
+      "field_count": 3,
+      "methods": [
+        "deposit",
+        "getBalance",
+        "withdraw"
+      ],
+      "fields": [
+        "amount",
+        "balance",
+        "globalLock"
+      ]
+    }
+  }
+]

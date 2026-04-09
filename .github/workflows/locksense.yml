@@ -1,0 +1,115 @@
+name: LockSense Pipeline
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-locksense:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    services:
+      ollama:
+        image: ollama/ollama:latest
+        ports:
+          - 11434:11434
+
+    steps:
+      - name: Set up job
+        run: echo "LockSense pipeline starting..."
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Initialize containers
+        run: |
+          # Wait for Ollama to be ready
+          for i in {1..30}; do
+            curl -sf http://localhost:11434/api/tags && break
+            sleep 2
+          done
+
+      - name: Pull LLM Model
+        run: |
+          curl -s http://localhost:11434/api/pull \
+            -d '{"name":"qwen2.5-coder:7b"}' | tail -1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install javalang scipy
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build LockSense Docker Image
+        run: |
+          docker build -t locksense:latest . \
+            --build-arg OLLAMA_HOST=http://localhost:11434
+
+      - name: Run LockSense Pipeline
+        run: |
+          docker run --rm \
+            --network=host \
+            -e OLLAMA_HOST=http://localhost:11434 \
+            -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+            -v ${{ github.workspace }}:/workspace \
+            locksense:latest \
+            python /workspace/run_pipeline.py /workspace candidates.json validated_candidates.json
+
+      - name: Extract Artifacts from Container
+        run: |
+          ls -la candidates.json validated_candidates.json 2>/dev/null || true
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: locksense-results
+          path: |
+            candidates.json
+            validated_candidates.json
+          if-no-files-found: warn
+
+      - name: Post PR Comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '## LockSense Report\n\n';
+            try {
+              const validated = JSON.parse(fs.readFileSync('validated_candidates.json', 'utf8'));
+              if (validated.length === 0) {
+                body += '**No lock contention findings.** :white_check_mark:\n';
+              } else {
+                body += `**${validated.length} confirmed contention issue(s) detected.**\n\n`;
+                body += '| Smell | Method | CF | Degradation |\n|---|---|---|---|\n';
+                for (const c of validated) {
+                  const deg = ((1 - 1/c.contention_factor)*100).toFixed(1);
+                  body += `| ${c.smell_type} | ${c.method} | ${c.contention_factor}x | ${deg}% |\n`;
+                }
+              }
+            } catch (e) {
+              body += '_Pipeline output not available._\n';
+            }
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
+
+      - name: Stop containers
+        if: always()
+        run: docker stop $(docker ps -q) 2>/dev/null || true
+
+      - name: Complete job
+        run: echo "LockSense pipeline complete."

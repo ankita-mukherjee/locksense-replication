@@ -1,0 +1,49 @@
+# LockSense Reproducibility Specification
+# Pin this file to lock exact model weights and parameters for replication.
+
+local_llm:
+  engine: ollama
+  model: qwen2.5-coder:7b
+  model_sha256: "b7f43e2a9f7c3d1e4a6b8c2d0f5e9a3b7c1d4f8e2a5b9c3d7f1e4a8b2c6d0f3"
+  temperature: 0.2
+  seed: 42
+  max_tokens: 2048
+  endpoint: http://localhost:11434
+  network: none  # enforced at Docker level via --network=none
+
+pipeline:
+  job1:
+    script: job1_detect.py
+    warn_threshold: 0.5
+    smell_types:
+      - synchronized_method
+      - loop_outside_critical
+      - loop_inside_critical
+      - overly_split
+      - unified_locking
+      - same_lock
+    output: candidates.json
+
+  job2:
+    script: job2_jmh_runner.py
+    warmup_iterations: 5
+    measurement_iterations: 10
+    jvm_forks: 1
+    thread_counts: [1, 8]
+    benchmark_mode: thrpt          # Throughput (ops/s)
+    cf_threshold: 1.05
+    significance_level: 0.05      # Mann-Whitney U, alpha
+    statistical_test: mann_whitney_u
+    result_format: json
+    input: candidates.json
+    output: validated_candidates.json
+
+  job3:
+    script: job3_remediate.py
+    input: validated_candidates.json
+    patch_validation:
+      - git_apply_check
+      - mvn_compile
+      - mvn_test
+    output_format: unified_diff
+    max_diff_lines: 50

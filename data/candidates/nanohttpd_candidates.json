@@ -1,0 +1,47 @@
+[
+  {
+    "file_path": "nanohttpd/core/src/main/java/org/nanohttpd/protocols/http/NanoHTTPD.java",
+    "start_line": 392,
+    "end_line": 393,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.06,
+    "method": "closeAllConnections",
+    "class": "NanoHTTPD",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 1,
+      "field_access_count": 0
+    }
+  },
+  {
+    "file_path": "nanohttpd/core/src/test/java/org/nanohttpd/junit/protocols/http/HttpChunkedResponseTest.java",
+    "start_line": 56,
+    "end_line": 58,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.35,
+    "method": "read",
+    "class": "HttpChunkedResponseTest",
+    "features": {
+      "method_length_loc": 2,
+      "call_depth": 3,
+      "field_access_count": 11
+    }
+  },
+  {
+    "file_path": "nanohttpd/websocket/src/main/java/org/nanohttpd/protocols/websockets/WebSocket.java",
+    "start_line": 257,
+    "end_line": 259,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.15,
+    "method": "sendFrame",
+    "class": "WebSocket",
+    "features": {
+      "method_length_loc": 2,
+      "call_depth": 2,
+      "field_access_count": 2
+    }
+  }
+]

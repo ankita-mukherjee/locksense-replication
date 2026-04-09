@@ -1,0 +1,272 @@
+[
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/BackgroundInitializer.java",
+    "start_line": 280,
+    "end_line": 281,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "getActiveExecutor",
+    "class": "BackgroundInitializer",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/BackgroundInitializer.java",
+    "start_line": 289,
+    "end_line": 290,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "getExternalExecutor",
+    "class": "BackgroundInitializer",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/BackgroundInitializer.java",
+    "start_line": 301,
+    "end_line": 303,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.03,
+    "method": "getFuture",
+    "class": "BackgroundInitializer",
+    "features": {
+      "method_length_loc": 2,
+      "call_depth": 0,
+      "field_access_count": 2
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/BackgroundInitializer.java",
+    "start_line": 341,
+    "end_line": 343,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.14,
+    "method": "isInitialized",
+    "class": "BackgroundInitializer",
+    "features": {
+      "method_length_loc": 2,
+      "call_depth": 2,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/BackgroundInitializer.java",
+    "start_line": 360,
+    "end_line": 361,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "isStarted",
+    "class": "BackgroundInitializer",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/BackgroundInitializer.java",
+    "start_line": 378,
+    "end_line": 380,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.09,
+    "method": "setExternalExecutor",
+    "class": "BackgroundInitializer",
+    "features": {
+      "method_length_loc": 2,
+      "call_depth": 1,
+      "field_access_count": 2
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/BackgroundInitializer.java",
+    "start_line": 395,
+    "end_line": 397,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.41,
+    "method": "start",
+    "class": "BackgroundInitializer",
+    "features": {
+      "method_length_loc": 2,
+      "call_depth": 5,
+      "field_access_count": 7
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 293,
+    "end_line": 296,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.23,
+    "method": "acquire",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 3,
+      "call_depth": 3,
+      "field_access_count": 3
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 322,
+    "end_line": 327,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.16,
+    "method": "endOfPeriod",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 5,
+      "call_depth": 1,
+      "field_access_count": 6
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 335,
+    "end_line": 336,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "getAcquireCount",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 346,
+    "end_line": 347,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.12,
+    "method": "getAvailablePermits",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 2,
+      "field_access_count": 0
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 356,
+    "end_line": 357,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.05,
+    "method": "getAverageCallsPerPeriod",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 3
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 376,
+    "end_line": 377,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "getLastAcquiresPerPeriod",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 385,
+    "end_line": 386,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "getLimit",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 414,
+    "end_line": 415,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "isShutdown",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 438,
+    "end_line": 439,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.03,
+    "method": "setLimit",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 2
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 446,
+    "end_line": 447,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.24,
+    "method": "shutdown",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 3,
+      "field_access_count": 4
+    }
+  },
+  {
+    "file_path": "commons-lang/src/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java",
+    "start_line": 478,
+    "end_line": 480,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.12,
+    "method": "tryAcquire",
+    "class": "TimedSemaphore",
+    "features": {
+      "method_length_loc": 2,
+      "call_depth": 2,
+      "field_access_count": 0
+    }
+  }
+]
