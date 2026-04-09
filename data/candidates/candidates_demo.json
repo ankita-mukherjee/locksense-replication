@@ -1,0 +1,144 @@
+[
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/OrderProcessor.java",
+    "start_line": 48,
+    "end_line": 54,
+    "lock_object": "lock",
+    "smell_type": "loop_outside_critical",
+    "severity_score": 0.65,
+    "method": "acquireLockPerItem",
+    "class": "OrderProcessor",
+    "features": {
+      "sync_acquisitions_in_loop": 1,
+      "lock_granularity": 0.5
+    }
+  },
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/OrderProcessor.java",
+    "start_line": 35,
+    "end_line": 45,
+    "lock_object": "lock",
+    "smell_type": "unified_locking",
+    "severity_score": 0.69,
+    "method": "acquireLockPerItem",
+    "class": "OrderProcessor",
+    "features": {
+      "method_count": 3,
+      "field_count": 5,
+      "methods": [
+        "acquireLockPerItem",
+        "getProcessedCount",
+        "processOrders"
+      ],
+      "fields": [
+        "lock",
+        "order",
+        "orders",
+        "processedCount",
+        "upper"
+      ]
+    }
+  },
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/OrderProcessor.java",
+    "start_line": 35,
+    "end_line": 45,
+    "lock_object": "lock",
+    "smell_type": "loop_inside_critical",
+    "severity_score": 0.6,
+    "method": "processOrders",
+    "class": "OrderProcessor",
+    "features": {
+      "loop_count": 1,
+      "operations_per_iteration": 3
+    }
+  },
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/ReportBuilder.java",
+    "start_line": 56,
+    "end_line": 59,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.11,
+    "method": "getReport",
+    "class": "ReportBuilder",
+    "features": {
+      "method_length_loc": 3,
+      "call_depth": 1,
+      "field_access_count": 3
+    }
+  },
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/ReportBuilder.java",
+    "start_line": 39,
+    "end_line": 51,
+    "lock_object": "this",
+    "smell_type": "overly_split",
+    "severity_score": 0.5,
+    "method": "buildSection",
+    "class": "ReportBuilder",
+    "features": {
+      "fragment_count": 2,
+      "total_acquisition_count": 2
+    }
+  },
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/SessionManager.java",
+    "start_line": 37,
+    "end_line": 47,
+    "lock_object": "sessionLock",
+    "smell_type": "unified_locking",
+    "severity_score": 0.81,
+    "method": "createSession",
+    "class": "SessionManager",
+    "features": {
+      "method_count": 5,
+      "field_count": 6,
+      "methods": [
+        "createSession",
+        "getAuditLog",
+        "getRequestCount",
+        "recordRequest",
+        "removeSession"
+      ],
+      "fields": [
+        "auditLog",
+        "endpoint",
+        "requestCounter",
+        "sessionLock",
+        "token",
+        "userId"
+      ]
+    }
+  },
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/SimpleBank.java",
+    "start_line": 17,
+    "end_line": 22,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.19,
+    "method": "deposit",
+    "class": "SimpleBank",
+    "features": {
+      "method_length_loc": 5,
+      "call_depth": 1,
+      "field_access_count": 8
+    }
+  },
+  {
+    "file_path": "sonarqube_demo/src/main/java/com/locksense/demo/SimpleBank.java",
+    "start_line": 26,
+    "end_line": 27,
+    "lock_object": "this",
+    "smell_type": "synchronized_method",
+    "severity_score": 0.02,
+    "method": "getBalance",
+    "class": "SimpleBank",
+    "features": {
+      "method_length_loc": 1,
+      "call_depth": 0,
+      "field_access_count": 1
+    }
+  }
+]
